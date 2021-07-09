@@ -1,0 +1,30 @@
+﻿@using RottenTomatoes.Entities;
+@model Task<MovieResponse>
+@{
+    ViewData["Title"] = "Result";
+    Layout = "_Layout";
+}
+
+<div class="row">
+    @foreach (Movie item in Model.Result.Movies)
+    {
+        <div class="col-sm-6 col-md-4" style="height: 230px;margin-bottom: 20px">
+            <div class="thumbnail col-md-12" style="height: inherit">
+                <img src="@item.Poster.Thumbnail" class="col-md-6" alt="...">
+                <div class="caption col-md-6">
+                    <p><strong>@item.Title</strong></p>
+                    <p><span class="badge">@item.Mpaa_Rating</span> - @item.Year </p>
+                    <p class="text-left">
+                        <strong>Critics</strong><br/>
+                        @item.Rating.Critics_Rating - %@item.Rating.Critics_Score<br/>
+                        <strong>Audience</strong><br/>
+                        @item.Rating.Audience_Rating - %@item.Rating.Audience_Score
+                    </p>
+                    
+                </div>
+                <p class="text-center" style="position: absolute;bottom: 0px;right: 10px"><a href="/Home/GetDetail/@item.Id" class="btn btn-default btn-block" role="button">Detay</a></p>
+            </div>
+        </div>
+        
+    }
+</div>

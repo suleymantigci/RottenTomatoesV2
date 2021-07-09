@@ -1,0 +1,38 @@
+﻿@using RottenTomatoes.Entities;
+@model Task<Movie>
+@{
+    Layout = "_Layout";
+}
+<div class="row">
+    <div class="col-xs-6 col-md-3">
+        <a href="#" class="thumbnail">
+            <img src="@Model.Result.Poster.Original" alt="...">
+        </a>
+    </div>
+    <div class="col-xs-6 col-md-9">
+        <h2>@Model.Result.Title</h2><hr />
+        <h4><span class="badge">@Model.Result.Mpaa_Rating</span>, @Model.Result.Year , @Model.Result.Runtime m</h4>
+        <table class="table">
+            
+            <tr>
+                <td>Critics Rating</td>
+                <td>@Model.Result.Rating.Critics_Rating</td>
+            </tr>
+            <tr>
+                <td>Critics Score</td>
+                <td>% @Model.Result.Rating.Critics_Score</td>
+            </tr>
+            <tr>
+                <td>Audience Rating</td>
+                <td>@Model.Result.Rating.Audience_Rating</td>
+            </tr>
+            <tr>
+                <td>Audience Score</td>
+                <td>% @Model.Result.Rating.Audience_Score</td>
+            </tr>
+            
+        </table>
+        <br/>
+        <p>@Model.Result.Synopsis</p>
+    </div>
+</div>
